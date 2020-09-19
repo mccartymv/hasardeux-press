@@ -1,0 +1,74 @@
+<div *ngIf="lists && !productCreationForm && !productDesignInput">
+  <h2>All Lists</h2>
+  <ul class="list-group">
+    <li *ngFor="let list of lists" class="list-group-item">
+      <div>
+        <div id="list-header">
+            <p>{{ list.name }}</p>
+            <button type="button btn" (click)="createNewProduct(list)"><i class="fa fa-plus-circle" aria-hidden="true"></i>Create New Product Template</button>    
+        </div>
+        <ul>
+          <li *ngFor="let product of list.products">
+            <p>{{ product.name }} <b>{{ product.width }}x{{ product.height }}</b></p>
+            <button class="wide-button" (click)="currentListForProduct = list;editProduct(product)"><i class="fa fa-pencil"></i></button>
+            <button id="delete-product-button" class="wide-button" (click)="deleteProduct(product)"><i class="fa fa-times"></i></button>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+  </ul>
+</div>
+
+<div *ngIf="productCreationForm && !productDesignInput">
+  <form #newProductForm="ngForm" (ngSubmit)="submitProduct(newProductForm.form);">
+    <div class="col-sm-6">
+      <h2>New {{ currentListForProduct.name }} Product Information</h2>
+      <label for="product-name"><u>Product Name (Detailed)</u></label>
+      <input type="text" class="form-control" id="product-name" required [(ngModel)]="model.productName" name="productName" #productName="ngModel">
+      <div>
+        <u>Product Dimensions (Pixels)</u><br />
+        <label for="product-width">Width</label>
+        <input type="text" class="form-control" id="product-width" required [(ngModel)]="model.productWidth" name="productWidth" #productWidth="ngModel">   
+        <label for="product-height">Height</label>
+        <input type="text" class="form-control" id="product-height" required [(ngModel)]="model.productHeight" name="productHeight" #productHeight="ngModel">
+      </div>
+      <button class="btn btn-primary" [disabled]="!newProductForm.valid">Submit</button>
+    </div>
+  </form>
+
+
+</div>
+
+
+<div *ngIf="productDesignInput">
+
+  <h2>{{ currentProduct.name }}</h2>
+  <h3><button (click)="changeListIndex(-1)"><i class="fa fa-arrow-left" aria-hidden="true"></i></button><button (click)="changeListIndex(1)"><i class="fa fa-arrow-right" aria-hidden="true"></i></button><input type="text" [(ngModel)]="currentProductDesignIndex" (change)="onCanvasChange()">/{{ currentListForProduct.contents.length }}</h3>
+  <p>Use "listItem" between double curly braces to insert the list item. Chnage list Items with the arrow buttons.</p>
+  <div>
+    <button class="btn btn-danger" *ngIf="!isUploadingCanvasBuffer" (click)="saveCanvasToStage();">
+      <div>Copy Canvas Image to Stage File</div>
+    </button>
+    <div *ngIf="isUploadingCanvasBuffer" class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div><br /><br />
+  <b>{{ currentListForProduct.contents[currentProductDesignIndex].name }}</b><br />
+  <b>{{ currentListForProduct.contents[currentProductDesignIndex].tags.length }}</b>
+  <p>{{ currentListForProduct.contents[currentProductDesignIndex].tags }}<p>
+  <div>
+      <ngx-codemirror 
+        [(ngModel)]="content" 
+        [options]="{
+          lineNumbers: true,
+          theme: 'material',
+          mode: 'markdown'
+        }"
+        (ngModelChange)="onCanvasChange()"
+      ></ngx-codemirror>
+    </div>
+    <canvas style="border: 1px solid black" id=pane width="{{ currentProduct.width }}" height="{{ currentProduct.height }}"></canvas>
+    <button type="button" class="btn btn-primary" (click)="saveProductDesign();productCreationForm=false;productDesignInput=false;">Save and Go Back</button>
+
+</div>

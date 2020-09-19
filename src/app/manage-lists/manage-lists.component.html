@@ -1,0 +1,49 @@
+<div *ngIf="lists && !listInspectorView && !listCreationView">
+  <h2>All Lists</h2>
+  <ul class="list-group">
+    <li *ngFor="let list of lists" class="list-group-item">
+      <div>
+        <p>{{ list.name }}<span class="badge badge-primary badge-pill">{{ list.contents.length }} items</span></p><p>{{ countHasBeenTagged(list.contents) }}/{{ list.contents.length }} Tagged. <span>( {{ countHasBeenTagged(list.contents) / list.contents.length | percent }} )</span></p><span>
+        <span><button type="button" (click)="inspectList(list)">Inspect</button></span><button type="button">Delete List</button></span>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <p (click)="createNewList()"><i class="fa fa-plus-circle" aria-hidden="true"></i>  Initialize New List</p>
+    </li>
+  </ul>
+</div>
+<div *ngIf="listInspectorView && !listCreationView && !editListView">
+    <h2>{{ listUnderInspection.name }}</h2>
+    <span class="badge badge-primary badge-pill">{{ listUnderInspection.contents.length }} items</span><br />
+    <button class="wide-button" type="button btn btn-primary" (click)="exitInspectListView()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</button><span style="float: right"><button class="wide-button" type="button" (click)="editList()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></span>
+    <ul class="list-group">
+      <li *ngFor="let item of listUnderInspection.contents" class="list-group-item">
+        {{ item | json }}
+      </li>
+    </ul>
+    <button type="button btn btn-primary" (click)="exitInspectListView()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</button>
+</div>
+<app-create-list *ngIf="listCreationView"></app-create-list>
+
+<div *ngIf="editListView">
+    <h2>{{ listUnderInspection.name }}</h2>
+    <button type="button btn btn-primary btn-lg" (click)="exitInspectListView()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</button>
+    <button type="button" class="btn-lg" style="float: right" (click)="updateListContents()"><i class="fa fa-floppy-o"> Save List</i></button>    
+    <ul class="list-group list-group-hover list-group-striped">
+      <li *ngFor="let o of listUnderInspection.contents; let i = index" style="border: 2px solid black; margin-bottom: 2em;">
+          <table>
+            <tr *ngFor="let k of getOwnPropertyNames(o)">
+              <td><b>{{ k }}:</b></td><td><input type="text" [(ngModel)]="o[k]"></td>
+            </tr>
+            <tr>
+              <button class="btn" (click)="deleteListItem(i)"><i class="fa fa-times"> Delete Item</i></button><button class="btn" (click)="addListItem(i, o)"><i class="fa fa-plus"> Add Below Index</i></button>
+            </tr>
+          </table>
+      </li>
+    </ul>
+    <button type="button btn btn-primary btn-lg" (click)="exitInspectListView()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</button>
+    <button type="button" class="btn-lg" style="float: right" (click)="updateListContents()"><i class="fa fa-floppy-o"> Save List</i></button>
+
+
+
+</div>

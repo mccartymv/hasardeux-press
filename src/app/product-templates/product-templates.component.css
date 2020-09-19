@@ -1,0 +1,9 @@
+#list-header {
+    margin-bottom: 2em;
+}
+#delete-product-button {
+    float: right;
+}
+.wide-button {
+    width: 4em;
+}

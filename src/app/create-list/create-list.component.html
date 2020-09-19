@@ -1,0 +1,50 @@
+<div>
+    <h2>New List Initialization</h2>
+    <form #newListForm="ngForm" (ngSubmit)="submitList(newListForm.form);listInspectorView=false;listCreationView=false">
+      <div>
+          <label for="name">List Name</label>
+          <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name"
+          #name="ngModel">
+      </div>
+  
+      <div>
+        <u>Scrape Information</u><br />
+        <label for="scrape-name">Scrape Name</label>
+        <input type="text" class="form-control" id="scrape-name" required [(ngModel)]="model.scrapeName" name="scrapeName"
+        #scrapeName="ngModel">
+        <label for="scrape-description">Scrape Description</label>
+        <input type="text" class="form-control" id="scrape-description" required [(ngModel)]="model.scrapeDescription" name="scrapeDescription"
+        #scrapeDescription="ngModel">
+        <label for="scrape-file">Scrape File Location</label>
+        <input type="text" class="form-control" id="scrape-file" required [(ngModel)]="model.scrapeFileLocation" name="scrapeFileLocation"
+        #scrapeFileLocation="ngModel">
+        <label for="scrape-js">Javascript</label>
+        <ul>
+          <li>Each item must have a unique "id" property</li>
+        </ul>
+        <ngx-codemirror id="scrape-js" required [(ngModel)]="model.scrapeJS" [options]="{
+          lineNumbers: true,
+          theme: 'material',
+          mode: 'markdown'
+        }" name="scrapeJS"
+        #scrapeJS="ngModel"></ngx-codemirror>
+        <div>
+          <label for="scrape-file">Tag Scrape File Location</label>
+          <input type="text" class="form-control" id="tag-scrape-file" required [(ngModel)]="model.tagScrapeLocation" name="tagScrapeLocation"
+          #tagScrapeLocation="ngModel">
+          <label for="tag-scrape-js">Tag Javascript</label>
+          <ngx-codemirror id="tag-scrape-js" required [(ngModel)]="model.tagScrapeJS" [options]="{
+            lineNumbers: true,
+            theme: 'material',
+            mode: 'markdown'
+          }" name="tagScrapeJS"
+          #tagScrapeJS="ngModel"></ngx-codemirror>
+  
+  
+  
+        </div>
+      </div>
+      <button class="btn btn-primary" [disabled]="!newListForm.valid">Submit</button>
+    </form>
+  
+</div>

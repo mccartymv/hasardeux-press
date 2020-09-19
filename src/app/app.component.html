@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Hasardeux Press</h1>
+  <ul class="list-group list-group-horizontal">
+    <a [routerLink]="['/lists']"><li class="list-group-item" routerLinkActive="active">Lists</li></a>
+    <a [routerLink]="['/scrapes']"><li class="list-group-item" routerLinkActive="active">Scrapes</li></a>
+    <a [routerLink]="['/product-templates']"><li class="list-group-item" routerLinkActive="active">Product Templates</li></a>
+    <a [routerLink]="['/settings']"><li class="list-group-item" routerLinkActive="active">Settings</li></a>
+    <a [routerLink]="['/upload']"><li class="list-group-item" routerLinkActive="active">Upload</li></a>
+  </ul>
+
+  <router-outlet></router-outlet>
+</div>

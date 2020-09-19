@@ -1,0 +1,21 @@
+<div *ngIf="lists">
+  <h2>Scrapes</h2>
+  <ul class="list-group">
+    <li *ngFor="let list of lists" class="list-group-item">
+      <div>
+        <h3>{{ list.name }}</h3>
+        <p>Available Scrapes</p>
+        <ul>
+          <li *ngFor="let scrape of list.scrapes;let index = index" class="list-group-item-dark">
+            <b>{{ scrape.name }}&nbsp;&nbsp;&nbsp;&nbsp;</b><input name="a{{index}}" [(ngModel)]="list.scrapes[index]['scrapeUrl']" type="text"/><button type="button" (click)="scrapeInputUrl(list._id, scrape.location, scrape.scrapeUrl); scrape.scrapeUrl = ''" title="scrape the url"><i class="fa fa-superpowers" aria-hidden="true"></i></button><button type="button" title="edit scrape"><i class="fa fa-pencil" aria-hidden="true"></i></button><br />
+            <p>{{ scrape.description }}</p>
+            <p>Tag Method: {{scrape.inheritTagMethod}}</p>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+
+
+
+</div>

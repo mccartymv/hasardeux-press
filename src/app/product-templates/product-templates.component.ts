@@ -2,7 +2,6 @@ import { inject } from '@angular/core/testing';
 import { List } from './../list';
 import { ListService } from '../list.service';
 import { ProductService } from '../product.service';
-import { DialogService } from './../dialog.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
@@ -41,7 +40,6 @@ export class ProductTemplatesComponent implements OnInit {
   createNewProduct(newProductList) {
 
     this.productCreationForm = true;
-    this.dialogService.tabNavigationConfirmDialog = true; // confirms with dialog NavigateAway Router Event
     this.currentListForProduct = newProductList;
 
   }
@@ -91,7 +89,6 @@ export class ProductTemplatesComponent implements OnInit {
 
   editProduct(productObj) {
     this.productDesignInput = true;
-    this.dialogService.tabNavigationConfirmDialog = true; // confirms with dialog NavigateAway Router Event
     productObj.isNew = false;
     this.currentProduct = productObj;
     this.content = productObj.canvasCode;
@@ -126,7 +123,6 @@ export class ProductTemplatesComponent implements OnInit {
 
   constructor(private listService: ListService,
               private productService: ProductService,
-              private dialogService: DialogService,
               @Inject(DOCUMENT) private document: any) { }
 
   ngOnInit() {

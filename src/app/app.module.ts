@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { CodemirrorModule } from '@ctrl/ngx-codemirror';
-import { ModalDialogModule } from 'ngx-modal-dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,8 +29,7 @@ import { UploadComponent } from './upload/upload.component';
       AppRoutingModule,
       HttpClientModule,
       FormsModule,
-      CodemirrorModule,
-      ModalDialogModule.forRoot()
+      CodemirrorModule
    ],
    providers: [],
    bootstrap: [

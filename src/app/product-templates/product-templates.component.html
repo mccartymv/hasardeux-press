@@ -55,8 +55,10 @@
     </div>
   </div><br /><br />
   <b>{{ currentListForProduct.contents[currentProductDesignIndex].name }}</b><br />
-  <b>{{ currentListForProduct.contents[currentProductDesignIndex].tags.length }}</b>
-  <p>{{ currentListForProduct.contents[currentProductDesignIndex].tags }}<p>
+  <div *ngIf="currentListForProduct.contents[currentProductDesignIndex].tags">
+    <b>{{ currentListForProduct.contents[currentProductDesignIndex].tags.length }}</b>
+    <p>{{ currentListForProduct.contents[currentProductDesignIndex].tags }}<p>
+  </div>
   <div>
       <ngx-codemirror 
         [(ngModel)]="content" 

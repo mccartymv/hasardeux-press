@@ -27,6 +27,12 @@ export class ManageListsComponent implements OnInit {
     this.getLists();
   }
 
+  exitEditListView() {
+    this.listInspectorView = true;
+    this.editListView = false;
+    this.getLists();
+  }
+
   createNewList() {
     this.listCreationView = true;
   }
@@ -72,7 +78,7 @@ export class ManageListsComponent implements OnInit {
     };
     this.listService.updateListContents(resObj)
       .subscribe(() => {
-        this.listInspectorView = false;
+        this.listInspectorView = true;
         this.editListView = false;
         this.getLists();
       });

@@ -29,10 +29,10 @@
 
 <div *ngIf="editListView">
     <h2>{{ listUnderInspection.name }}</h2>
-    <button type="button btn btn-primary btn-lg" (click)="exitInspectListView()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</button>
+    <button type="button btn btn-primary btn-lg" (click)="exitEditListView()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</button>
     <button type="button" class="btn-lg" style="float: right" (click)="updateListContents()"><i class="fa fa-floppy-o"> Save List</i></button>    
     <ul class="list-group list-group-hover list-group-striped">
-      <li *ngFor="let o of listUnderInspection.contents; let i = index" style="border: 2px solid black; margin-bottom: 2em;">
+      <li *ngFor="let o of listUnderInspection.contents | paginate: { itemsPerPage: 20, currentPage: p }; let i = index" style="border: 2px solid black; margin-bottom: 2em;">
           <table>
             <tr *ngFor="let k of getOwnPropertyNames(o)">
               <td><b>{{ k }}:</b></td><td><input type="text" [(ngModel)]="o[k]"></td>
@@ -43,7 +43,7 @@
           </table>
       </li>
     </ul>
-    <button type="button btn btn-primary btn-lg" (click)="exitInspectListView()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</button>
+    <button type="button btn btn-primary btn-lg" (click)="exitEditListView()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</button>
     <button type="button" class="btn-lg" style="float: right" (click)="updateListContents()"><i class="fa fa-floppy-o"> Save List</i></button>
 
 

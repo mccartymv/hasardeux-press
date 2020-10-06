@@ -15,7 +15,7 @@
 <div *ngIf="listInspectorView && !listCreationView && !editListView">
     <h2>{{ listUnderInspection.name }}</h2>
     <span class="badge badge-primary badge-pill">{{ listUnderInspection.contents.length }} items</span><br />
-    <button class="wide-button" type="button btn btn-primary" (click)="exitInspectListView()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</button><span style="float: right"><button class="wide-button" type="button" (click)="editList()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></span>
+    <button class="wide-button" type="button btn btn-primary" (click)="exitInspectListView();p=1"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</button><span style="float: right"><button class="wide-button" type="button" (click)="editList()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></span>
     <div><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
     <ul class="list-group">
       <li *ngFor="let item of listUnderInspection.contents | paginate: { itemsPerPage: 20, currentPage: p }" class="list-group-item">
@@ -23,7 +23,7 @@
       </li>
     </ul>
     <div><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
-    <button type="button btn btn-primary" (click)="exitInspectListView()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</button>
+    <button class="wide-button" type="button btn btn-primary" (click)="exitInspectListView();p=1"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</button><span style="float: right"><button class="wide-button" type="button" (click)="editList()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></span>
 </div>
 <app-create-list *ngIf="listCreationView"></app-create-list>
 

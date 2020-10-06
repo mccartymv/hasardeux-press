@@ -17,7 +17,8 @@ var environment = process.env.NODE_ENV;
 var dbUrl = options.storageConfig.dbUrl;
 
 var options = { keepAlive: 300000, connectTimeoutMS: 30000, 
-                useNewUrlParser: true };       
+                useNewUrlParser: true,
+                useUnifiedTopology: true };       
   
 mongoose.connect(dbUrl, options);
 var conn = mongoose.connection;

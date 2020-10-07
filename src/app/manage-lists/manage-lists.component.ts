@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { element } from 'protractor';
 import { List } from '../list';
 import { ListService } from '../list.service';
 
@@ -58,9 +59,11 @@ export class ManageListsComponent implements OnInit {
 
   }
 
-  deleteListItem(index) {
-    // console.log(index);
-    this.listUnderInspection.contents.splice(index, 1);
+  deleteListItem(itemId) {
+    const itemDeleteIndex = this.findWithAttr(this.listUnderInspection.contents, 'id', itemId);
+    if (itemDeleteIndex > -1) {
+      this.listUnderInspection.contents.splice(itemDeleteIndex, 1);
+    }
   }
 
   addListItem(index, parentObj) {
@@ -89,6 +92,16 @@ export class ManageListsComponent implements OnInit {
   getOwnPropertyNames(obj) {
     return Object.getOwnPropertyNames(obj);
   }
+
+  findWithAttr(array, attr, value) {
+    for (let i = 0; i < array.length; i += 1) {
+        if (array[i][attr] === value) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 
   constructor(private listService: ListService) { }
 

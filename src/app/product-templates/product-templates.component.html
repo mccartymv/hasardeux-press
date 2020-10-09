@@ -45,15 +45,7 @@
 
   <h2>{{ currentProduct.name }}</h2>
   <h3><button (click)="changeListIndex(-1)"><i class="fa fa-arrow-left" aria-hidden="true"></i></button><button (click)="changeListIndex(1)"><i class="fa fa-arrow-right" aria-hidden="true"></i></button><input type="text" [(ngModel)]="currentProductDesignIndex" (change)="onCanvasChange()">/{{ currentListForProduct.contents.length }}</h3>
-  <p>Use "listItem" between double curly braces to insert the list item. Chnage list Items with the arrow buttons.</p>
-  <div>
-    <button class="btn btn-danger" *ngIf="!isUploadingCanvasBuffer" (click)="saveCanvasToStage();">
-      <div>Copy Canvas Image to Stage File</div>
-    </button>
-    <div *ngIf="isUploadingCanvasBuffer" class="spinner-border" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div><br /><br />
+  <p>Use "listItem" between double curly braces to insert the list item. Chnage list Items with the arrow buttons.</p><br />
   <b>{{ currentListForProduct.contents[currentProductDesignIndex].name }}</b><br />
   <div *ngIf="currentListForProduct.contents[currentProductDesignIndex].tags">
     <b>{{ currentListForProduct.contents[currentProductDesignIndex].tags.length }}</b>
@@ -76,6 +68,14 @@
         <input type="checkbox" [(ngModel)]="isDesignCodeRendering" (ngModelChange)="onCanvasChange()">
         <span class="slider round"></span>
       </label>
+      <div>
+        <button class="btn btn-primary" *ngIf="!isUploadingCanvasBuffer" (click)="saveCanvasToStage();">
+          <div>Copy Canvas Image to Stage File</div>
+        </button>
+        <div *ngIf="isUploadingCanvasBuffer" class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div><br />
     </div>
     <canvas style="border: 1px solid black" id=pane width="{{ currentProduct.width }}" height="{{ currentProduct.height }}"></canvas>
     <button type="button" class="btn btn-primary" (click)="saveProductDesign();productCreationForm=false;productDesignInput=false;">Save and Go Back</button>

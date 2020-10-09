@@ -28,6 +28,8 @@ export class ProductTemplatesComponent implements OnInit {
   imageBuffer;
   isUploadingCanvasBuffer = false;
 
+  isDesignCodeRendering = true; // toggles live code preview
+
   // tslint:disable-next-line: max-line-length
   content = 'var canvas = document.getElementById("pane");\nvar context = canvas.getContext("2d");\n\nvar listItem = "{{ listItem }}";\n\ncontext.clearRect(0, 0, canvas.width, canvas.height);\n\ncontext.fillStyle = "rgba(0, 0, 250, 0.5)";\ncontext.font = "20px Georgia";\ncontext.fillText(listItem, 55, 50);';
 
@@ -67,14 +69,13 @@ export class ProductTemplatesComponent implements OnInit {
   }
 
   onCanvasChange() {
-
-    this.canvasDesignCode = this.content.replace('{{ listItem }}',
-    this.currentListForProduct.contents[this.currentProductDesignIndex].name);
-
-    this.s = document.createElement('script');
-    this.s.text = this.canvasDesignCode;
-    this.document.getElementsByTagName('head')[0].appendChild(this.s);
-
+    if (this.isDesignCodeRendering) {
+      this.canvasDesignCode = this.content.replace('{{ listItem }}',
+      this.currentListForProduct.contents[this.currentProductDesignIndex].name);
+      this.s = document.createElement('script');
+      this.s.text = this.canvasDesignCode;
+      this.document.getElementsByTagName('head')[0].appendChild(this.s);
+    }
   }
 
   saveProductDesign() {

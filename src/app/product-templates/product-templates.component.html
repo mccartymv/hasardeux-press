@@ -58,6 +58,13 @@
   <div *ngIf="currentListForProduct.contents[currentProductDesignIndex].tags">
     <b>{{ currentListForProduct.contents[currentProductDesignIndex].tags.length }}</b>
     <p>{{ currentListForProduct.contents[currentProductDesignIndex].tags }}<p>
+    <div>
+      <b>Render Product Template Code&nbsp;</b>
+      <label class="switch">
+        <input type="checkbox" [(ngModel)]="isDesignCodeRendering" (ngModelChange)="onCanvasChange()">
+        <span class="slider round"></span>
+      </label>
+    </div>
   </div>
   <div>
       <ngx-codemirror 

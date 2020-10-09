@@ -58,13 +58,6 @@
   <div *ngIf="currentListForProduct.contents[currentProductDesignIndex].tags">
     <b>{{ currentListForProduct.contents[currentProductDesignIndex].tags.length }}</b>
     <p>{{ currentListForProduct.contents[currentProductDesignIndex].tags }}<p>
-    <div>
-      <b>Render Product Template Code&nbsp;</b>
-      <label class="switch">
-        <input type="checkbox" [(ngModel)]="isDesignCodeRendering" (ngModelChange)="onCanvasChange()">
-        <span class="slider round"></span>
-      </label>
-    </div>
   </div>
   <div>
       <ngx-codemirror 
@@ -75,7 +68,14 @@
           mode: 'markdown'
         }"
         (ngModelChange)="onCanvasChange()"
-      ></ngx-codemirror>
+      ></ngx-codemirror><br />
+    </div>
+    <div>
+      <b>Render Product Template Code&nbsp;</b>
+      <label class="switch">
+        <input type="checkbox" [(ngModel)]="isDesignCodeRendering" (ngModelChange)="onCanvasChange()">
+        <span class="slider round"></span>
+      </label>
     </div>
     <canvas style="border: 1px solid black" id=pane width="{{ currentProduct.width }}" height="{{ currentProduct.height }}"></canvas>
     <button type="button" class="btn btn-primary" (click)="saveProductDesign();productCreationForm=false;productDesignInput=false;">Save and Go Back</button>

@@ -100,7 +100,7 @@ export class ManageListsComponent implements OnInit {
         }
     }
     return -1;
-}
+  }
 
 
   constructor(private listService: ListService) { }

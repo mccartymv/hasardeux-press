@@ -32,10 +32,14 @@
     <button type="button btn btn-primary btn-lg" (click)="exitEditListView()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</button>
     <button type="button" class="btn-lg" style="float: right" (click)="updateListContents()"><i class="fa fa-floppy-o"> Save List</i></button>    
     <ul class="list-group list-group-hover list-group-striped">
-      <li *ngFor="let o of listUnderInspection.contents | paginate: { itemsPerPage: 20, currentPage: p }" style="border: 2px solid black; margin-bottom: 2em;">
+      <li *ngFor="let o of listUnderInspection.contents | paginate: { itemsPerPage: 20, currentPage: p }; index as i" style="border: 2px solid black; margin-bottom: 2em;">
           <table>
             <tr *ngFor="let k of getOwnPropertyNames(o)">
-              <td><b>{{ k }}:</b></td><td><input type="text" [(ngModel)]="o[k]"></td>
+              <td><b>{{ k }}:</b></td><td *ngIf="k !== 'contentFlag'; else elseBlock"><input type="text" [(ngModel)]="o[k]"></td>
+              <ng-template #elseBlock>
+                True<input type="radio" [name]="i+'true'" [(ngModel)]="o[k]" [value]="true">
+                False<input type="radio" [name]="i+'false'" [(ngModel)]="o[k]" [value]="false">
+              </ng-template>
             </tr>
             <tr>
               <button class="btn" (click)="deleteListItem(o.id)"><i class="fa fa-times"> Delete Item</i></button><button class="btn" (click)="addListItem(i, o)"><i class="fa fa-plus"> Add Below Index</i></button>

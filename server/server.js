@@ -1,26 +1,26 @@
 'use-strict';
-var express = require('express');
-var app = express();
-var request = require('request');
-var cheerio = require('cheerio');
-var _ = require('underscore');
-var mongoose = require('mongoose');
-var logger = require('morgan');
-var bodyParser = require('body-parser');
-var fs = require('fs');
-var path = require('path');
-var options = require('../options');
-var port = process.env.PORT || 7575;
-var environment = process.env.NODE_ENV;
+const express = require('express');
+const app = express();
+const request = require('request');
+const cheerio = require('cheerio');
+const _ = require('underscore');
+const mongoose = require('mongoose');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const path = require('path');
+const options = require('../options');
+const port = process.env.PORT || 7575;
+const environment = process.env.NODE_ENV;
 
 
 var dbUrl = options.storageConfig.dbUrl;
 
-var options = { keepAlive: 300000, connectTimeoutMS: 30000, 
+var dbOptions = { keepAlive: 300000, connectTimeoutMS: 30000, 
                 useNewUrlParser: true,
                 useUnifiedTopology: true };       
   
-mongoose.connect(dbUrl, options);
+mongoose.connect(dbUrl, dbOptions);
 var conn = mongoose.connection;
 
 conn.on('error', console.error.bind(console, 'connection error:'));  

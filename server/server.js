@@ -25,7 +25,7 @@ var conn = mongoose.connection;
 
 conn.on('error', console.error.bind(console, 'connection error:'));  
  
-conn.once('open', function() {
+conn.once('open', () => {
     console.log("Connected to MongoDB...");
     var listSchema = mongoose.Schema({
         _id: Object,
@@ -42,7 +42,7 @@ conn.once('open', function() {
 
     app.use(logger('dev'));
 
-    app.use(function(req, res, next) {
+    app.use((req, res, next) => {
 
         // Website you wish to allow to connect
         res.setHeader('Access-Control-Allow-Origin', '*');
@@ -61,16 +61,6 @@ conn.once('open', function() {
         next();
     });
 
-
-    /**
-    var scrapeUrl = "https://rateyourmusic.com/customchart?page=1&chart_type=top&type=album&year=alltime&genre_include=1&include_child_genres=1&genres=noise&include_child_genres_chk=1&include=both&origin_countries=&limit=none&countries=";
-    newFunction(scrapeUrl);
-
-    async function newFunction(scrapeUrl) {    
-        var newResults = await ws.myScrape(scrapeUrl);
-        console.log(newResults);
-    }
-    */
 
     var api = '/api';
     app.get(api + '/get-lists', getLists);
@@ -105,7 +95,7 @@ conn.once('open', function() {
                 console.log("Error: " + err);
             }
 
-            var currentListItems = _.find(docs, function(doc) {
+            var currentListItems = _.find(docs, (doc) => {
                 return req.body.listId == String(doc['_id'])
             })['contents'];
 
@@ -114,16 +104,15 @@ conn.once('open', function() {
 
             async function scrapeFunction(scrapeUrl) {    
                 var newResults = await ws.myScrape(scrapeUrl);
-                //console.log(newResults);
-                _.each(newResults, function(result) {
-                    // console.log(result.name);
+
+                _.each(newResults, (result) => {
+
                     if (_.find(currentListItems, function(item) {
                         return result.id === item.id
                     })) {
                         console.log("duplicate exists in list");
                     } else {
                         currentListItems.push(result);
-                        //currentListItems.save();
                     }
                 });
                 List.updateOne({ "_id": mongoose.Types.ObjectId(req.body.listId) }, { $set: { "contents": currentListItems } }, function(err, mongoRes) {
@@ -138,9 +127,6 @@ conn.once('open', function() {
 
 
 
-    //tagScrapeItem();
-
-    //var tagScrapeEngine = setInterval(function() { tagScrapeItem() }, Math.floor(Math.random() * (500000 - 150000)) + 150000);
 
 
 
@@ -163,7 +149,6 @@ conn.once('open', function() {
             console.log(scrapeItem['name'] + ":");
 
             scrapeFunction("http://webcache.googleusercontent.com/search?q=cache:" + scrapeItem['href'], function(results) {
-                //console.log(results);
                 if (results.constructor === Object) {
                     scrapeItem.tags = results.tagArray;
                     scrapeItem.hasBeenTagged = true;
@@ -183,7 +168,6 @@ conn.once('open', function() {
 
 
                 } else if (results == "candidate for deletion") {
-                    //console.log("string");
                     List.updateOne({ "name" : "Music Artists" }, { '$pull' : { 'contents' : { 'id' : scrapeItem.id } } }, function(err) {
                         if (err) {
                             console.log(err);
@@ -207,40 +191,20 @@ conn.once('open', function() {
             }
         });
         
-
-/**
-
-
-
-
-            var currentListItems = _.find(docs, function(doc) {
-                return listId == String(doc['_id'])
-            })['contents'];
-            var currentItem = _.find(currentListItems, function(item) {
-                return itemId == item.id
-            });
-
-            scrapeFunction(currentItem['href']);
-
-
-
-*/
-
-        }
+    }
 
     function getScrapeTemplates(req, res) {
 
         var responseObj = {};
 
-        fs.readFile("scrape-files/myScrapeTemplate.js", "utf8", function(err, data) {
-            //console.log(data);
+        fs.readFile("scrape-files/myScrapeTemplate.js", "utf8", (err, data) => {
             if (err) {
                 console.log(err);
             }
 
             responseObj['scrapeTemplate'] = data;
 
-            fs.readFile("scrape-files/myTagScrapeTemplate.js", "utf8", function(err, data) {
+            fs.readFile("scrape-files/myTagScrapeTemplate.js", "utf8", (err, data) => {
                 if (err) {
                     console.log(err);
                 }
@@ -258,7 +222,7 @@ conn.once('open', function() {
 
     function newList(req, res) {
         var listObj = req.body;
-        fs.writeFile(path.join(__dirname, listObj['scrapes'][0].location), listObj.scrapeJS, function(err) {
+        fs.writeFile(path.join(__dirname, listObj['scrapes'][0].location), listObj.scrapeJS, (err) => {
             if (err) {
                 console.log(err);
             }
@@ -283,7 +247,6 @@ conn.once('open', function() {
 
 
     function saveProduct(req, res) {
-        // console.log(req.body);
 
         var productObj = req.body;
 
@@ -298,7 +261,7 @@ conn.once('open', function() {
             });  
         } else {
 
-            List.updateOne({ "_id": mongoose.Types.ObjectId(productObj.listId), "products.name": productObj.name }, { "products.$.canvasCode" : productObj.canvasCode }, function(err) {
+            List.updateOne({ "_id": mongoose.Types.ObjectId(productObj.listId), "products.name": productObj.name }, { "products.$.canvasCode" : productObj.canvasCode }, (err) => {
                 if (err) {
                     console.log("Mongo Error: " + err);
                 }
@@ -313,7 +276,7 @@ conn.once('open', function() {
 
         var productObj = req.body;
 
-        List.updateOne({ "_id": mongoose.Types.ObjectId(productObj.listId) }, { $pull : { "products" : { "_id": mongoose.Types.ObjectId(productObj._id) } } }, function(err) {
+        List.updateOne({ "_id": mongoose.Types.ObjectId(productObj.listId) }, { $pull : { "products" : { "_id": mongoose.Types.ObjectId(productObj._id) } } }, (err) => {
             if (err) {
                 console.log("Mongo Error: " + err);
             }
@@ -323,11 +286,9 @@ conn.once('open', function() {
     }
 
     function updateList(req, res) {
-
-        // console.log(req.body);
         var listObj = req.body;
 
-        List.updateOne({ "_id": mongoose.Types.ObjectId(listObj.listId) }, { $set : { "contents" : listObj.contents } }, function(err) {
+        List.updateOne({ "_id": mongoose.Types.ObjectId(listObj.listId) }, { $set : { "contents" : listObj.contents } }, (err) => {
             if (err) {
                 console.log("Mongo Error: " + err);
             }
@@ -339,11 +300,9 @@ conn.once('open', function() {
 
     function bufferToStage(req, res) {
 
-        // console.log("Request Body: \n" + req.body.buffer);
-
         var data = req.body.buffer.replace(/^data:image\/\w+;base64,/, "");
         var buf = Buffer.from(data, 'base64');
-        fs.writeFile('./stage/canvas.png', buf, function(err) {
+        fs.writeFile('./stage/canvas.png', buf, (err) => {
             console.log('image copy to stage successful');
             res.json({});
         });
@@ -356,7 +315,7 @@ conn.once('open', function() {
 
 });
 
-app.listen(port, function() {
+app.listen(port, () => {
     console.log('Express server listening on port ' + port);
     console.log('env = ' + app.get('env'))
 });

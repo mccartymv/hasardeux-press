@@ -1,0 +1,19 @@
+{
+  "name": "hasardeux-press",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "mongoose": "^5.10.5",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7",
+    "request": "^2.88.2",
+    "underscore": "^1.11.0"
+  }
+}

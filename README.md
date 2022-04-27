@@ -1,6 +1,10 @@
 # hasardeux-press
 Node.js back-end for custom artwork design templates for staging and uploading to print-on-demand marketplaces.
 
+![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/squarebiz_gallery.png?raw=true)
+![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/squarebiz_gallery2.png?raw=true)
+![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/mustbe_gallery.png?raw=true)
+
 On the front-end, the user 
 
 To start the server run

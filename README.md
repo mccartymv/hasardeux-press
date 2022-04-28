@@ -17,7 +17,7 @@ To run the front end in development mode:
 To run the Node.js backend:
 - run `node server/server.js` from the project directory in another console window
 
-The project should be running on `localhost:4200` and can be accessed from your web browser
+The project should be running now on `localhost:4200` and can be accessed from your web browser
 
 # Project Requirements
 - As an Artist User, I would like to be able to save large lists I find online so that I can use them in my artwork

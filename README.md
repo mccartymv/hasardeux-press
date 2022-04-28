@@ -1,4 +1,4 @@
-# hasardeux-press
+# Hasardeux Press
 Full-Stack Javascript Web App for creating custom artwork design templates and staging the images for upload to print-on-demand marketplaces.
 
 ![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/squarebiz_gallery2.png?raw=true)

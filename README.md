@@ -44,7 +44,7 @@ Clicking the "Manage Lists" button lets us browse the entire list with all data 
 
 
 ![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/artwork-example.png?raw=true)
-The design above was rendered with the code below, which was written entirely in the browser:
+The design above was rendered on an HTML5 Canvas with the Javascript code below, which was written entirely in the browser:
 ```
 var canvas = document.getElementById("pane");
 var context = canvas.getContext("2d");

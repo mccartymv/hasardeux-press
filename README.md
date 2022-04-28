@@ -38,6 +38,7 @@ We can edit lists and cull unwanted items easily from this page
 
 
 # Custom Javascript Templates
+![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/live-code-edit-screen.png?raw=true)
 
 
 

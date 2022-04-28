@@ -23,9 +23,13 @@ The project should be running now on `localhost:4200` and can be accessed from y
 - As an Artist User, I would like to be able to save large lists that I find online so that I can use them in my artwork.
 - As an Artist User, I would like to be able to manage the lists manually, so that I can edit some items, remove unwanted items or add new items as well.
 - As an Artist User, I would like to be able to create new templates and edit them in the browser with HTML5 canvas rules and a live preview.
-- As an Artist User, I would like a button which will save a PNG image of a single artwork to the 'stage' folder in the project directory, so that I can easily and quickly upload many designs to a print-on-demand site.
+- As an Artist User, I would like a button which will save a PNG image of the currently rendered artwork to the 'stage' folder in the project directory, so that I can easily and quickly upload many designs to a print-on-demand site.
 
 # List Management
+Once a list of items is scraped from the web, it will appear in the Lists Tab.
+![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/list-browse.png?raw=true)
+
+
 
 
 # Custom Javascript Templates

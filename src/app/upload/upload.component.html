@@ -1,0 +1,29 @@
+<div *ngIf="lists && !uploadListView">
+    <ul class="list-group">
+        <li *ngFor="let list of lists" class="list-group-item" (click)="uploadListSelect(list)">
+          <div>
+            <div><h3>{{ list.name }}</h3><span class="badge badge-primary badge-pill">{{ list.contents.length }} items</span></div>
+          </div>
+        </li>
+      </ul>
+</div>
+
+<div *ngIf="lists && uploadListView">
+    <button class="btn" (click)="uploadListView=false"><i class="fa fa-chevron-left" aria-hidden="true"></i>Back</button>
+    <ul>
+        <li *ngFor="let item of currentUploadList.contents">
+            <div style="width: auto;">
+                <p>{{ item.id }}</p>
+                <h3>{{ item.name }}</h3>
+                <div>
+                    <button class="btn btn-warning">Copy Tags To Clipboard</button><br />
+                    <textarea>{{ item.tags }}</textarea>
+                    <ul *ngFor="let product of currentUploadList.products">
+                        <li><div><h4>{{ product.name }}</h4><b>{{ product.width }}/{{ product.height }}</b><button class="btn btn-success">Copy Canvas Image to Stage File</button></div></li>
+                    </ul>
+                </div>
+
+            </div>
+        </li>
+    </ul>
+</div>

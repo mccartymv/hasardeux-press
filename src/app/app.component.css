@@ -1,0 +1,13 @@
+@font-face {
+    font-family: didot;
+    src: url("../assets/fonts/Didot-Bold.otf") format("opentype");
+  }
+
+@font-face {
+    font-family: onyx;
+    src: url("../assets/fonts/Sardonyx.ttf") format("truetype");
+}
+@font-face {
+  font-family: futura;
+  src: url("../assets/fonts/Futura.ttf") format("truetype");
+}

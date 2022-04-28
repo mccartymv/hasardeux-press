@@ -21,7 +21,7 @@ The project should be running now on `localhost:4200` and can be accessed from y
 
 # Project Requirements
 - As an Artist User, I would like to be able to save large lists I find online so that I can use them in my artwork.
-- As an Artist User, I would like to be able to manage the lists manually, so that I can remove unwanted items from the lists and add new items as well.
+- As an Artist User, I would like to be able to manage the lists manually, so that I can edit some items, remove unwanted items or remove unwanted items as well.
 - As an Artist User, I would like to be able to create new templates and edit them in the browser with HTML5 canvas rules and a live preview.
 - As an Artist User, I would like a button which will save a single artwork to the project directory, so that I can easily upload the design to a print-on-demand site.
 

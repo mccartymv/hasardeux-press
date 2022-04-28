@@ -38,7 +38,7 @@ The project should be running now on `localhost:4200` and can be accessed from y
 
 
 ![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/artwork-example.png?raw=true)
-Here is the design code for the above example:
+The design above was rendered with the code below, which was written entirely in the browser:
 ```
 var canvas = document.getElementById("pane");
 var context = canvas.getContext("2d");

@@ -37,7 +37,7 @@ The project should be running now on `localhost:4200` and can be accessed from y
 
 
 
-![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/Screenshot (277).png?raw=true)
+![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/'Screenshot (277).png'?raw=true)
 Here is the design code for the above example:
 ```
 var canvas = document.getElementById("pane");

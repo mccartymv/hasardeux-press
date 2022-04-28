@@ -28,7 +28,8 @@ The project should be running now on `localhost:4200` and can be accessed from y
 # List Management
 Once a list of items is scraped from the web, it will appear in the Lists Tab.
 ![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/home.png?raw=true)
-
+Clicking the "Manage Lists" button lets us browse the entire list with all data associated with each item 
+![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/list-browse.png?raw=true)
 
 
 

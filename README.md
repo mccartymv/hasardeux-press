@@ -27,7 +27,7 @@ The project should be running now on `localhost:4200` and can be accessed from y
 
 # List Management
 Once a list of items is scraped from the web, it will appear in the Lists Tab.
-![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/list-browse.png?raw=true)
+![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/home.png?raw=true)
 
 
 
@@ -67,14 +67,13 @@ var longestLine = 0;
 for (k=0;k<text.length;++k) {
     if (longestLine < context.measureText(text[k].toUpperCase()).width) {
         longestLine = context.measureText(text[k].toUpperCase()).width;
-    };
+    }
 }
 
 for (k=0;k<text.length;++k) {
     context.fillStyle = inkColor;
     context.fillRect(45, (250+(k*85))-75, longestLine + 30, 96);
     context.fillStyle = bgColor;
-    // context.globalCompositeOperation = "destination-out";
     context.fillText(text[k].toUpperCase(), 60, (250+(k*85)));
     context.globalCompositeOperation = "source-over";
 }
@@ -85,9 +84,9 @@ function stackText(string) {
 	var splitArray = string.replace(/ *\([^)]*\) */g, "").split(' ');
 	
 	if (splitArray.length === 2 && 
-    	splitArray[0].length < 9 && 
-        splitArray[1].length < 9) {
-    	splitArray[0] = splitArray[0] + " " + splitArray[1];
+    	    splitArray[0].length < 9 && 
+            splitArray[1].length < 9) {
+    		splitArray[0] = splitArray[0] + " " + splitArray[1];
 		splitArray.length = 1;
 	}
 
@@ -100,7 +99,7 @@ function stackText(string) {
         	var textStacks = partitions(splitArray, k);
         	for (var j=0;j<textStacks.length;++j) {
             	stacks.push({
-                	'array' : textStacks[j],
+                    'array' : textStacks[j],
                     'waste' : countWaste(textStacks[j])                
                 });
             }
@@ -114,14 +113,11 @@ function stackText(string) {
 
             if (stack1.array.length > stack2.array.length) return 1;
             if (stack1.array.length < stack2.array.length) return -1;
-
         });
 
-		splitArray = stacks[0].array;
+	splitArray = stacks[0].array;
 
 	}
-
-
 
     return splitArray
 }
@@ -133,13 +129,13 @@ function partitions(arr, length) {
   for (let firstlen = arr.length - length + 1; firstlen > 0; firstlen--) {
     let prefix = arr.slice(0, firstlen).join(" ");
     results.push(...partitions(arr.slice(firstlen), length - 1)
-                    .map(result => [prefix, ...result]));
+    	.map(result => [prefix, ...result]));
   }
   return results;
 }
 
 function countWaste(arr) {
-	var longestString = 0;
+    var longestString = 0;
     for (var k=0;k<arr.length;++k) {
     	if (arr[k].length>longestString) {
         	longestString = arr[k].length;
@@ -147,8 +143,8 @@ function countWaste(arr) {
     }
     var waste = 0;
     for (var k=0;k<arr.length;++k) {
-		waste = waste + (longestString - arr[k].length);
-	}
+	waste = waste + (longestString - arr[k].length);
+    }
     return waste
 
 }

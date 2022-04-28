@@ -1,9 +1,9 @@
 # hasardeux-press
 Node.js back-end for custom artwork design templates and staging for upload to print-on-demand marketplaces.
 
-![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/squarebiz_gallery2.png?raw=true)
-![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/squarebiz_gallery.png?raw=true)
-![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/mustbe_gallery.png?raw=true)
+![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/squarebiz_gallery2.png?raw=true)
+![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/squarebiz_gallery.png?raw=true)
+![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/mustbe_gallery.png?raw=true)
 
 To start the server run
 ```

@@ -32,7 +32,7 @@ Once a list of items is scraped from the web, it will appear in the Lists Tab.
 Clicking the "Manage Lists" button lets us browse the entire list with all data associated with each item 
 ![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/list-browse.png?raw=true)<br><br>
 
-We can edit lists and cull unwanted items easily from this page
+We can edit lists and individual list items here. Also we can cull unwanted items or add new items to the list easily from this page
 ![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/list-edit.png?raw=true)<br><br>
 
 

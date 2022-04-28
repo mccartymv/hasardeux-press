@@ -33,7 +33,8 @@ conn.once('open', () => {
         dateCreated: String,
         contents: Array,
         scrapes: Array,
-        products: Array
+        products: Array,
+        titleTemplate: String
     }, {collection : 'product-data'});
     var List = mongoose.model('Product-Data', listSchema);
 

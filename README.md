@@ -44,12 +44,45 @@ Clicking "Copy Canvas Image to Stage File" will send an image buffer of the curr
 
 
 <br><br>
-
-
-
-
-![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/artwork-example.png?raw=true)
+![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/artwork-example-2.png?raw=true)
 The design above was rendered on an HTML5 Canvas with the Javascript code below, which was written entirely in the browser:
+```
+var canvas = document.getElementById("pane");
+var context = canvas.getContext("2d");
+context.fillStyle = "black";
+
+var listItem = "{{ listItem }}";
+context.scale(1, 1.5);
+context.clearRect(0, 0, canvas.width, canvas.height);
+
+context.fillStyle = "yellow";
+context.textAlign = "center";
+context.textBaseline = "top";
+var textX = (canvas.width/2);
+
+// context.font = "italic 600px Onyx";
+var largestFontSize = 0;
+for (var k=150;k<1500;++k) {
+	context.font = "italic " + k + "px Onyx";
+    var textWidth = context.measureText("100% " + listItem.toUpperCase()).width;
+    if (textWidth < (canvas.width - 250)) {
+        largestFontSize = k;
+    }
+}
+if (largestFontSize>=1000) {
+	var spacesWidth = context.measureText(" ").width*0.65;
+} else {
+	var spacesWidth = context.measureText(" ").width/3;
+}
+context.font = "italic " + largestFontSize + "px Onyx";
+context.fillText("100% " + listItem.toUpperCase(), textX-spacesWidth, 75 + ((listItem.length+4)));
+context.setTransform(1, 0, 0, 1, 0, 0);
+
+```
+
+<br><br>
+![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/artwork-example.png?raw=true)
+Another design rendered with browser code:
 ```
 var canvas = document.getElementById("pane");
 var context = canvas.getContext("2d");

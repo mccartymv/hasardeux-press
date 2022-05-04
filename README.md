@@ -81,7 +81,7 @@ context.setTransform(1, 0, 0, 1, 0, 0);
 ```
 
 <br><br>
-![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/artwork-example.png?raw=true)
+![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/artwork-example-3.png?raw=true)
 Another design rendered with browser code:
 ```
 var canvas = document.getElementById("pane");

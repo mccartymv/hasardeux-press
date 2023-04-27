@@ -1,29 +1,33 @@
 # Hasardeux Press
-Full-Stack Javascript Web App for creating custom artwork design templates and staging the images for upload to print-on-demand marketplaces.
 
-![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/top_banner.jpg?raw=true)
-![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/mid_banner.jpg?raw=true)
-![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/bottom_banner.jpg?raw=true)
+Hasardeux Press is a full-stack JavaScript web application that enables artists to create custom artwork design templates and stage images for upload to print-on-demand marketplaces.
 
-# Running The Project
+![Top Banner](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/top_banner.jpg?raw=true)
+![Mid Banner](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/mid_banner.jpg?raw=true)
+![Bottom Banner](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/bottom_banner.jpg?raw=true)
 
-A running [MongoDB database deployment](https://www.mongodb.com/atlas/database) is required to use this project. Set one up and enter the database url to the `dbUrl` field in `config.json`.
+## Prerequisites
 
-To run the front end in development mode: 
-- `git clone` this repository
-- `cd hasardeux-press` to enter the project directory
-- run `ng serve` to serve the project
+A running [MongoDB database deployment](https://www.mongodb.com/atlas/database) is required to use this project. Set one up and enter the database URL in the `dbUrl` field in `config.json`.
 
-To run the Node.js backend:
-- run `node server/server.js` from the project directory in another console window
+## Getting Started
 
-The project should be running now on `localhost:4200` and can be accessed from your web browser
+1. Clone this repository: `git clone https://github.com/mccartymv/hasardeux-press.git`
+2. Navigate to the project directory: `cd hasardeux-press`
+3. Install the required dependencies: `npm install`
+4. Run the front end in development mode: `ng serve`
+5. In a separate console window, run the Node.js backend: `node server/server.js`
 
-# Project User Stories
-- As an Artist User, I would like to be able to save large lists that I find online so that I can use them in my artwork.
-- As an Artist User, I would like to be able to manage the lists manually, so that I can edit some items, remove unwanted items or add new items as well.
-- As an Artist User, I would like to be able to create new templates and edit them in the browser with HTML5 canvas rules and a live preview.
-- As an Artist User, I would like a button which will save a PNG image of the currently rendered artwork to the 'stage' folder in the project directory, so that I can easily and quickly upload many designs to a print-on-demand site.
+The project should now be running on `localhost:4200` and can be accessed from your web browser.
+
+## Features
+
+### Project User Stories
+
+- As an Artist User, I want to save large lists found online for use in my artwork.
+- As an Artist User, I want to manage the lists manually to edit, remove, or add items.
+- As an Artist User, I want to create and edit templates in the browser using HTML5 canvas rules and a live preview.
+- As an Artist User, I want a button to save a PNG image of the currently rendered artwork to the 'stage' folder in the project directory for easy upload to print-on-demand sites.
 
 # List Management
 Once a list of items is scraped from the web, it will appear in the Lists Tab.

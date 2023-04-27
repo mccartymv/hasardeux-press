@@ -42,7 +42,8 @@ We can edit lists and individual list items here. Also we can cull unwanted item
 
 
 ### Custom Javascript Templates
-![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/live-code-edit-screen.png?raw=true)<br>
+![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/live-code-edit-screen.png?raw=true)
+<br>
 The screenshot above displays the template editing and artwork upload page. Users can conveniently modify the template JavaScript code directly in the browser, with a live rendering to preview how each list item appears in the design. To prevent incomplete code from crashing the browser, a switch is available to toggle the rendering on and off.<br><br>
 
 By clicking "Copy Canvas Image to Stage File," users send an image buffer of the current canvas rendering to the server, where it is saved as a PNG image in the stage directory. This enables users to easily upload the image to an artwork upload form on a print-on-demand site. The process can be repeated for every artwork generated from the list.

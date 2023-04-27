@@ -29,7 +29,7 @@ The project should now be running on `localhost:4200` and can be accessed from y
 - As an Artist User, I want to create and edit templates in the browser using HTML5 canvas rules and a live preview.
 - As an Artist User, I want a button to save a PNG image of the currently rendered artwork to the 'stage' folder in the project directory for easy upload to print-on-demand sites.
 
-# List Management
+### List Management
 Once a list of items is scraped from the web, it will appear in the Lists Tab.
 ![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/home.png?raw=true)<br><br>
 
@@ -41,7 +41,7 @@ We can edit lists and individual list items here. Also we can cull unwanted item
 
 
 
-# Custom Javascript Templates
+### Custom Javascript Templates
 ![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/live-code-edit-screen.png?raw=true)
 The above screenshot shows the template editing/artwork upload page. Here the user can edit the template javascript code in the browser and see the live rendering, while cycling through list items to see how each one might look in the template. A switch to toggle the rendering is necessary, as it prevents incomplete code from crashing the browser.<br><br>
 Clicking "Copy Canvas Image to Stage File" will send an image buffer of the current canvas rendering to the server, where it will be saved as a PNG image to the `stage` directory. The user is now free to upload this image to an artwork upload form on a print-on-demand site. They can then repeat the process for every artwork rendered by the list.

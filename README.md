@@ -49,6 +49,8 @@ The screenshot above displays the template editing and artwork upload page. User
 By clicking "Copy Canvas Image to Stage File," users send an image buffer of the current canvas rendering to the server, where it is saved as a PNG image in the stage directory. This enables users to easily upload the image to an artwork upload form on a print-on-demand site. The process can be repeated for every artwork generated from the list.
 
 
+## Example Artworks
+
 <br><br>
 ![alt text](https://github.com/mccartymv/hasardeux-press/blob/main/src/assets/images/artwork-example-2.png?raw=true)
 The design above was rendered on an HTML5 Canvas with the Javascript code below, which was written entirely in the browser:
